@@ -1,0 +1,145 @@
+/* Navbar.css */
+.navbar-container {
+    background: rgba(7, 7, 7, 0.495);
+    backdrop-filter: blur(12px);
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    /* Center links on desktop */
+    align-items: center;
+    padding: 0 70px;
+    position: relative;
+    z-index: 1000;
+    margin-bottom: 25px;
+}
+
+.navbar-logo {
+    height: 60px;
+    cursor: pointer;
+}
+
+.navbar-logo img {
+    height: 100%;
+    width: auto;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 1.8rem;
+
+
+    color: white;
+    cursor: pointer;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-links {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 10px;
+    transition: color 0.3s ease;
+}
+
+.nav-links:hover {
+    color: #a1c8f1;
+}
+
+@media screen and (max-width: 960px) {
+    .NavbarItems {
+        position: relative;
+    }
+
+    .nav-menu {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        /* Fit content */
+        position: absolute;
+        top: 50px;
+        /* Height of navbar */
+        left: -100%;
+        opacity: 0;
+        transition: all 0.5s ease;
+        background: rgba(2, 49, 100, 0.95);
+        padding: 20px 0;
+        align-items: center;
+        z-index: 999;
+    }
+
+    .nav-menu.active {
+        left: 0;
+        opacity: 1;
+        transition: all 0.5s ease;
+    }
+
+    .nav-links {
+        text-align: center;
+        padding: 2rem;
+        width: 100%;
+        display: table;
+    }
+
+    .nav-links:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 0;
+    }
+
+    .menu-icon {
+        display: block;
+        position: absolute;
+        top: 21px;
+        right: 0;
+        transform: translate(-100%, 60%);
+        cursor: pointer;
+    }
+
+    /* Hamburger lines */
+    .fa-bars {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        position: relative;
+    }
+
+    .fa-bars::before,
+    .fa-bars::after {
+        content: '';
+        position: absolute;
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        transition: 0.3s;
+    }
+
+    .fa-bars::before {
+        top: -8px;
+    }
+
+    .fa-bars::after {
+        top: 8px;
+    }
+
+    /* X icon state */
+    .nav-menu.active+.menu-icon .fa-bars {
+        background-color: transparent;
+    }
+
+    .nav-menu.active+.menu-icon .fa-bars::before {
+        top: 0;
+        transform: rotate(45deg);
+    }
+
+    .nav-menu.active+.menu-icon .fa-bars::after {
+        top: 0;
+        transform: rotate(-45deg);
+    }
+}
